@@ -1,0 +1,249 @@
+{
+	"info": {
+		"_postman_id": "c2166911-5d66-43e7-881f-b58ce27d81f5",
+		"name": "Creditcalculator",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "200 https://creditcalculator.pointschool.ru/calculator/short-result?desiredLoan=50000&initialPayment=25000&creditTerm=60",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a702cbda-cdae-4f40-885e-b347af06b980",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Your test name max\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.max).to.eql(\"1 109\");\r",
+							"});\r",
+							"pm.test(\"Your test name min\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.min).to.eql(\"554\");\r",
+							"});\r",
+							"pm.test(\"Response time is less than 150ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(150);\r",
+							"});\r",
+							"pm.test(\"X-Powered-By is present\", function () {\r",
+							"    pm.response.to.have.header(\"X-Powered-By\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "83d15966-de03-46ef-9d5f-ce77610228a1",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "authority",
+						"value": "creditcalculator.pointschool.ru"
+					},
+					{
+						"key": "accept",
+						"value": "application/json, text/javascript, */*; q=0.01"
+					},
+					{
+						"key": "accept-language",
+						"value": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+					},
+					{
+						"key": "cookie",
+						"value": "advanced-frontend=7b90cf8a2357dbafe6e1fff472d88ddf; _csrf-frontend=801b35f93be7dba27e278e336d1760408d6bfde855b1ade234dc9cfd860565fba%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_csrf-frontend%22%3Bi%3A1%3Bs%3A32%3A%2221Nph33z3n1UcZRWQRx80imNPrT06bzi%22%3B%7D"
+					},
+					{
+						"key": "referer",
+						"value": "https://creditcalculator.pointschool.ru/credit"
+					},
+					{
+						"key": "sec-ch-ua",
+						"value": "\"Chromium\";v=\"122\", \"Not(A:Brand\";v=\"24\", \"Google Chrome\";v=\"122\""
+					},
+					{
+						"key": "sec-ch-ua-mobile",
+						"value": "?0"
+					},
+					{
+						"key": "sec-ch-ua-platform",
+						"value": "\"Windows\""
+					},
+					{
+						"key": "sec-fetch-dest",
+						"value": "empty"
+					},
+					{
+						"key": "sec-fetch-mode",
+						"value": "cors"
+					},
+					{
+						"key": "sec-fetch-site",
+						"value": "same-origin"
+					},
+					{
+						"key": "user-agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
+					},
+					{
+						"key": "x-csrf-token",
+						"value": "Pq88bl38EB3MR_UNpUzk6Rt_5SwMMP7fV3DscuRsj3kMnnIeNc8jZ_8pxFjGFra-Si2dFDxZk5EHArhC0g71EA=="
+					},
+					{
+						"key": "x-requested-with",
+						"value": "XMLHttpRequest"
+					}
+				],
+				"url": {
+					"raw": "https://{{url}}/calculator/short-result?desiredLoan=50000&initialPayment=25000&creditTerm=60",
+					"protocol": "https",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"calculator",
+						"short-result"
+					],
+					"query": [
+						{
+							"key": "desiredLoan",
+							"value": "50000"
+						},
+						{
+							"key": "initialPayment",
+							"value": "25000"
+						},
+						{
+							"key": "creditTerm",
+							"value": "60"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "500 https://creditcalculator.pointschool.ru/calculator/short-result?desiredLoan=50000&initialPayment=25000&creditTerm=60 Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a702cbda-cdae-4f40-885e-b347af06b980",
+						"exec": [
+							"pm.test(\"Status code is 500\", function () {\r",
+							"    pm.response.to.have.status(500);\r",
+							"});\r",
+							"pm.test(\"Response time is less than 150ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(150);\r",
+							"});\r",
+							"pm.test(\"X-Powered-By is present\", function () {\r",
+							"    pm.response.to.have.header(\"X-Powered-By\");\r",
+							"});\r",
+							"pm.test(\"Body matches string Error 500\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"Error 500\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "1cf98e6a-6322-451f-a9fb-1ebc8b1ae3c5",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "authority",
+						"value": "creditcalculator.pointschool.ru"
+					},
+					{
+						"key": "accept",
+						"value": "application/json, text/javascript, */*; q=0.01"
+					},
+					{
+						"key": "accept-language",
+						"value": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+					},
+					{
+						"key": "cookie",
+						"value": "advanced-frontend=7b90cf8a2357dbafe6e1fff472d88ddf; _csrf-frontend=801b35f93be7dba27e278e336d1760408d6bfde855b1ade234dc9cfd860565fba%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_csrf-frontend%22%3Bi%3A1%3Bs%3A32%3A%2221Nph33z3n1UcZRWQRx80imNPrT06bzi%22%3B%7D"
+					},
+					{
+						"key": "referer",
+						"value": "https://creditcalculator.pointschool.ru/credit"
+					},
+					{
+						"key": "sec-ch-ua",
+						"value": "\"Chromium\";v=\"122\", \"Not(A:Brand\";v=\"24\", \"Google Chrome\";v=\"122\""
+					},
+					{
+						"key": "sec-ch-ua-mobile",
+						"value": "?0"
+					},
+					{
+						"key": "sec-ch-ua-platform",
+						"value": "\"Windows\""
+					},
+					{
+						"key": "sec-fetch-dest",
+						"value": "empty"
+					},
+					{
+						"key": "sec-fetch-mode",
+						"value": "cors"
+					},
+					{
+						"key": "sec-fetch-site",
+						"value": "same-origin"
+					},
+					{
+						"key": "user-agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
+					},
+					{
+						"key": "x-csrf-token",
+						"value": "Pq88bl38EB3MR_UNpUzk6Rt_5SwMMP7fV3DscuRsj3kMnnIeNc8jZ_8pxFjGFra-Si2dFDxZk5EHArhC0g71EA=="
+					},
+					{
+						"key": "x-requested-with",
+						"value": "XMLHttpRequest"
+					}
+				],
+				"url": {
+					"raw": "https://{{url}}/calculator/short-result?desiredLoan=строка&initialPayment=25000&creditTerm=60",
+					"protocol": "https",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"calculator",
+						"short-result"
+					],
+					"query": [
+						{
+							"key": "desiredLoan",
+							"value": "строка"
+						},
+						{
+							"key": "initialPayment",
+							"value": "25000"
+						},
+						{
+							"key": "creditTerm",
+							"value": "60"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
